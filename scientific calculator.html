@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="=en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Simple Calculator</title>
+        <style>
+            body{
+        
+            }
+    table
+    {background-color: darkblue;
+        
+    }
+div{
+    
+    color: rgb(158, 209, 39);
+}
+#display{
+  background-color: darkkhaki;  
+}
+
+    input{
+        
+     background-color: grey;
+    }
+    input:hover
+    {
+      background-color: darkred;
+    }
+    tbody{
+
+        background-color: rgb(88, 29, 184);
+    }
+        </style>
+    </head>
+    <body>
+        <div class="title" > Scientific Calculator </div>
+        <br>
+
+        <table border="10px"  id="tab1">
+            <tbody>
+                <!-- first row -->
+                <tr>
+                    <input type="text" name ="display" id="display">
+                   <input type="button" value="clear" onclick="clearCal();">
+                    
+                </tr>
+                <!-- second row -->
+                
+                <tr>
+                   <td> <input type="button" value="    1" onclick="dis('1');"> </td>
+                    <td><input type="button" value="    2 " onclick="dis('2');"></td>
+                    <td><input type="button" value="    3" onclick="dis('3');"></td>
+                    <td><input type="button" value="    /" onclick="dis('/');"></td>
+                </tr>
+                <br>
+                <!-- third row -->
+                <tr>
+                    <td> <input type="button" value="    4" onclick="dis('4');"> </td>
+                     <td><input type="button" value="    5 " onclick="dis('5');"></td>
+                     <td><input type="button" value="    6" onclick="dis('6');"></td>
+                     <td><input type="button" value="    -" onclick="dis('-');"></td>
+                 </tr>
+                <br>
+                <!-- fouth row -->
+                <tr>
+                    <td> <input type="button" value="    7" onclick="dis('7');"> </td>
+                     <td><input type="button" value="    8 " onclick="dis('8');"></td>
+                     <td><input type="button" value="    9" onclick="dis('9');"></td>
+                     <td><input type="button" value="   +" onclick="dis('+');"></td>
+                 </tr>
+                 <br>
+                 <tr>
+                    <td> <input type="button" value="     ." onclick="dis('.');"> </td>
+                     <td><input type="button" value="    0 " onclick="dis('0');"></td>
+                     <td><input type="button" value="    =" onclick="solve();"></td>
+                     <td><input type="button" value="  <-  " onclick="backspace();"></td>
+                 </tr>
+                 <tr>
+                    <td> <input type="button" value="sqrt" onclick="squareroot();"> </td>
+                     <td><input type="button" value="sqr  " onclick="square();"></td>
+                     <td><input type="button" value="log " onclick="log();"></td>
+                     <td><input type="button" value=" n! " onclick="fact();"></td>
+                 </tr>
+                 <tr>
+                    <td> <input type="button" value="sin " onclick="sine();"> </td>
+                     <td><input type="button" value="cos " onclick="cosine();"></td>
+                     <td><input type="button" value="tan " onclick="Tan();"></td>
+                     <td><input type="button" value="pi  " onclick="pie();"></td>
+                 </tr>
+                 <tr>
+                    <td> <input type="button" value=" e   " onclick="exponetial();"> </td>
+                     <td><input type="button" value="Exp " onclick="exp();"></td>
+                     <td><input type="button" value=" (    " onclick="dis('(');"></td>
+                     <td><input type="button" value=" )   " onclick="dis(')');"></td>
+                 </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+        <script type="text/javascript">
+            function dis(x){
+                document.getElementById("display").value +=x;
+            }
+            function solve(){
+                var x = document.getElementById("display").value;
+                var y= eval(x);
+                document.getElementById("display").value=y;
+            }
+            function clearCal(){
+            document.getElementById("display").value = "";
+        }
+            function fact(){
+               var n= document.getElementById("display").value;
+                var f=1;
+                for(var i=1;i<=n;i++)
+                {
+                    f=f*i;
+                }
+                document.getElementById("display").value=f;
+            }
+            function square(){
+            var x = document.getElementById("display").value;
+            var y = x*x;
+            document.getElementById("display").value = y;
+        }
+        function squareroot(){
+            var x = document.getElementById("display").value;
+            var y = Math.sqrt(x);
+            document.getElementById("display").value = y;
+        }
+        function log(){
+            var x = document.getElementById("display").value;
+            var y = Math.log(x);
+            document.getElementById("display").value = y;
+        }
+        function sine(){
+            var x = document.getElementById("display").value;
+            var y = Math.sin(x);
+            document.getElementById("display").value = y;
+        }
+        function cosine(){
+            var x = document.getElementById("display").value;
+            var y = Math.cos(x);
+            document.getElementById("display").value = y;
+        }
+        function Tan(){
+            var x = document.getElementById("display").value;
+            var y = Math.tan(x);
+            document.getElementById("display").value = y;
+        }
+        function pie(){
+             var x = document.getElementById("display").value;
+            var y = Math.PI;
+            document.getElementById("display").value = y;
+        }
+        function exponetial(){
+            var x = document.getElementById("display").value;
+            var y = Math.E(x);
+            document.getElementById("display").value = y;
+        }
+        function exp(){
+            var x = document.getElementById("display").value;
+            var y = Math.exp(x);
+            document.getElementById("display").value = y;
+        }
+        function backspace()
+        {
+          var x = document.getElementById("display").value;
+    document.getElementById("display").value = x.substr(0, x.length - 1);
+        }
+               </script>
+    </body>
+</html>
